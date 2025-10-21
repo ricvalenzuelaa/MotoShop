@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MotoShop Corporation</title>
+  <style>
+   
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      background: linear-gradient(135deg, #57B9FF, #a2d9ff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+   
+    .home {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 16px;
+      text-align: center;
+      width: 350px;
+      padding: 40px 30px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      color: white;
+      transition: transform 0.3s ease;
+    }
+
+    .home:hover {
+      transform: translateY(-5px);
+    }
+
+ 
+    .home h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .home p {
+      font-size: 14px;
+      margin-bottom: 25px;
+      color: #f5f5f5;
+      opacity: 0.9;
+    }
+
+ 
+    .btndiv a {
+      text-decoration: none;
+    }
+
+    button {
+      width: 100%;
+      background-color: #ffffff;
+      color: #007acc;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 0;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-bottom: 15px;
+      transition: all 0.2s ease-in-out;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    button:hover {
+      background-color: #007acc;
+      color: white;
+      transform: scale(1.05);
+    }
+
+   
+    @media (max-width: 480px) {
+      .home {
+        width: 85%;
+        padding: 30px 20px;
+      }
+
+      .home h2 {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="home">
+    <h2>MotoShop Corporation</h2>
+    <p>Register your account</p>
+
+    <div class="btndiv">
+      <a href="userlogin.html"><button class="signup">User Login</button></a>
+      <a href="adminlogin.html"><button class="signin">Admin Login</button></a>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MotoShop | Register</title>
+  <style>
+
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      background: linear-gradient(135deg, #57B9FF, #a2d9ff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+
+    .register-box {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 16px;
+      width: 400px;
+      padding: 40px 30px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      color: white;
+      transition: transform 0.3s ease;
+    }
+
+    .register-box:hover {
+      transform: translateY(-5px);
+    }
+
+
+    h2 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 25px;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+
+    p {
+      text-align: center;
+      font-size: 13px;
+      opacity: 0.9;
+      color: #f5f5f5;
+    }
+
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      text-align: left;
+      font-size: 13px;
+      margin-bottom: 6px;
+      color: #f1f1f1;
+      opacity: 0.9;
+    }
+
+    input {
+      padding: 10px 12px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      outline: none;
+      color: #333;
+    }
+
+    input::placeholder {
+      color: #888;
+    }
+
+   
+    button {
+      width: 100%;
+      background-color: #ffffff;
+      color: #007acc;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 0;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 5px;
+      transition: all 0.2s ease-in-out;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    button:hover {
+      background-color: #007acc;
+      color: white;
+      transform: scale(1.05);
+    }
+
+   
+    .login-link {
+      display: inline-block;
+      margin-top: 15px;
+      font-size: 13px;
+      color: #f5f5f5;
+      text-decoration: none;
+      text-align: center;
+      transition: color 0.2s;
+    }
+
+    .login-link:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+ 
+    @media (max-width: 480px) {
+      .register-box {
+        width: 85%;
+        padding: 30px 20px;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+    }
+   .footer-section {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .footer-section p {
+      font-size: 13px;
+      color: #555;
+      margin-bottom: 8px;
+    }
+
+    .login-link{
+      text-decoration: none;
+      color: #57B9FF;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="register-box">
+    <h2>Create Your Account</h2>
+
+    <form onsubmit="return validateform()" method="post" action="login.php">
+      <label for="Firstname">Firstname</label>
+      <input type="text" id="Firstname" placeholder="Enter your first name" required>
+
+      <label for="Lastname">Lastname</label>
+      <input type="text" id="Lastname" placeholder="Enter your last name" required>
+
+      <label for="City">City</label>
+      <input type="text" id="City" placeholder="Enter your city" required>
+
+      <label for="Username">Username</label>
+      <input type="text" id="Username" placeholder="Choose a username" required>
+
+      <label for="Password">Password</label>
+      <input type="password" id="Password" placeholder="Create a password" required>
+
+      <button type="submit">Submit</button>
+    </form>
+
+ <div class="footer-section">
+        <p>By registering, you agree to our terms and conditions.</p>
+        <a href="userlogin.html" class="login-link">Already have an account? Log in</a>
+      </div>
+</body>
+
+</html>
