@@ -1,59 +1,94 @@
-<!DOCTYPE html>
-<hmtl lang="en">
-    <style>
-        /* Reset some default styles */
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Motorcycle Catalog</title>
+
+<style>
+/* Reset some default styles */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
+  text-align: center;
 }
 
-/* Table styling */
-table {
+/* Header */
+h1 {
+  margin-top: 20px;
+  color: #333;
+}
+
+/* Category buttons */
+.filter-buttons {
+  margin: 20px 0;
+}
+
+.filter-buttons button {
+  background-color: #007acc;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+
+.filter-buttons button:hover {
+  background-color: #555;
+  transform: scale(1.05);
+}
+
+.filter-buttons button.active {
+  background-color: #007acc;
+}
+
+/* Catalog Grid */
+.catalog {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
   width: 90%;
   margin: 30px auto;
-  border-collapse: separate;
-  border-spacing: 20px;
 }
 
-/* Table cell styling */
-td {
+/* Card Styling */
+.card {
   background-color: #fff;
-  padding: 20px;
   border-radius: 10px;
-  text-align: center;
+  padding: 15px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
-td:hover {
+.card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
-/* Image styling */
-td img {
-  max-width: 100%;
+.card img {
+  width: 100%;
+  height: 180px;
   border-radius: 5px;
   object-fit: cover;
 }
 
-/* Heading styling */
-td h2 {
-  font-size: 1.2rem;
+.card h2 {
+  font-size: 1.1rem;
   margin: 10px 0 5px;
   color: #333;
 }
 
-/* Price styling */
-td p {
+.card p {
   font-weight: bold;
   color: #27ae60;
   margin: 5px 0 15px;
 }
 
-/* Button styling */
-td button {
+.card button {
   background-color: #3498db;
   color: white;
   border: none;
@@ -64,138 +99,104 @@ td button {
   transition: background-color 0.3s ease;
 }
 
-td button:hover {
+.card button:hover {
   background-color: #2980b9;
 }
+
+/* Hide class for filtering */
+.hidden {
+  display: none;
+}
 </style>
-<table>
+</head>
 
 <body>
 
-  <tr>
-    <td><img src="5e14280082ae4.webp" width="250" height="150">
-        <h2>Honda CBR650R</h2>
-        <p>P554,000 </p>
-        <button>Buy now</button>
-    </td>
-  
-    <td><img src="2020-kawasaki-z1000r-right-side-philippines-5e55c3cf179bb.webp" width="250" height="150">
-    <h2>Kawasaki Z1000R</h2>
-     <p>P710,000</p>
-     <button>Buy now</button>
-</td>
-   <td><img src="honda-winner-x-68623e7de343b.webp" width="300" height="150">
-    <h2>Honda Winner X</h2>
-     <p>P165,000s</p>
-     <button>Buy now</button>
+<h1>MotoShop</h1>
 
-   <td><img src="cfmoto-250sr-67ada43a9e182.webp" width="250" height="150">
-    <h2>CFMOTO 250R</h2>
-     <p>P135,000</p>
-     <button>Buy now</button>     
-  </tr>
-  <tr>
-   <td><img src="kawasaki-vulcan-1700-vaquero-687f362508ad4.webp" width="250" height="150">
-        <h2>kawasaki Vulcan 1700cc</h2>
-        <p>P856,000 </p>
-        <button>Buy now</button>
-    </td>
-  
-    <td><img src="kawasaki-vulcan-900-custom-687f345ca9203.webp" width="250" height="150">
-    <h2>Kawasaki Vulcan 900cc</h2>
-     <p>P600,000</p>
-     <button>Buy now</button>
-</td>
-   <td><img src="yamaha-mio-gravis-677cadab369a3.webp" width="300" height="150">
-    <h2>Yamaha Mio Garvis 125 175</h2>
-     <p>P75,000</p>
-     <button>Buy now</button>
+<!-- Category Buttons -->
+<div class="filter-buttons">
+  <button class="active" onclick="filterSelection('all')">All</button>
+  <button onclick="filterSelection('honda')">Honda</button>
+  <button onclick="filterSelection('kawasaki')">Kawasaki</button>
+  <button onclick="filterSelection('yamaha')">Yamaha</button>
+  <button onclick="filterSelection('cfmoto')">Cfmoto</button>
+  <button onclick="filterSelection('ducati')">Ducati</button>
+</div>
 
-   <td><img src="2020-kawasaki-zx-14r-green-philippines-5e563a521fb57.webp" width="250" height="150">
-    <h2>Kawasaki ZX 14R</h2>
-     <p>P750,000</p>
-     <button>Buy now</button>  
-  </tr>
-   <tr>
-   <td><img src="honda-cbr150r-686491309a8fd.webp" width="250" height="150">
-        <h2>Honda CBR150R</h2>
-        <p>P169,000 </p>
-        <button>Buy now</button>
-    </td>
-  
-    <td><img src="honda-giorno-6798410b30508.webp" width="250" height="150">
-    <h2>Honda Diorno</h2>
-     <p>P110,000</p>
-     <button>Buy now</button>
-</td>
-   <td><img src="kawasaki-barako-62e76e7877348.webp" width="300" height="150">
-    <h2>Kawasaki Barako 175</h2>
-     <p>P80,000</p>
-     <button>Buy now</button>
+<!-- Motorcycle Catalog -->
+<div class="catalog">
 
-   <td><img src="yamaha-ytx125-62e76bb3ee19f.webp" width="250" height="150">
-    <h2>Yamaha YTX125</h2>
-     <p>P95,000</p>
-     <button>Buy now</button>  
-  </tr>
-    <td><img src="cfmoto-450sr.webp" width="250" height="150">
-    <h2>CFMOTO 450SR</h2>
-     <p>P299,900</p>
-     <button>Buy now</button>  
-<td><img src="cfmoto-500sr.webp" width="250" height="150">
-    <h2>CFMOTO 500SR</h2>
-     <p>P100,900</p>
-     <button>Buy now</button> 
-     <td><img src="CFMOTO 150 NK.webp" width="250" height="150">
-    <h2>CFMOTO 150 NK</h2>
-     <p>P100,900</p>
-     <button>Buy now</button> 
-     <td><img src="kawasaki-ninja-e-1-687f411f30e87.webp" width="300" height="150">
-    <h2>Kawasaki NINJA - E-1</h2>
-     <p>P624,000</p>
-     <button>Buy now</button>
-     <td><img src="HONDA CBR1000RR.webp" width="300" height="150">
-    <h2>Honda CBR1000RR-R Fireblade</h2>
-     <p>P1,699,000</p>
-     <button>Buy now</button>
-     <td><img src="2022-honda-adv-160-63482d341fbe9.webp" width="300" height="150">
-    <h2>HONDA ADV 160</h2>
-     <p>P166,900</p>
-     <button>Buy now</button>
-     <td><img src="2022-honda-cbr500r-6243fc32c3245.webp" width="300" height="150">
-    <h2>Honda CBR500R</h2>
-     <p>P389,000</p>
-     <button>Buy now</button>
-     <td><img src="honda cb1000R.webp" width="300" height="150">
-    <h2>HONDA CB1000R</h2>
-     <p>P865,000</p>
-     <button>Buy now</button>
-     <td><img src="kawasaki-ninja-500-66430e4fe7b79.webp" width="300" height="150">
-    <h2>Kawasaki NINJA</h2>
-     <p>P865,000</p>
-     <button>Buy now</button>
-     <td><img src="kawasaki-ninja-zx-25r-687f3aaebfca6.webp" width="300" height="150">
-    <h2>Kawasaki NINJA</h2>
-     <p>P865,000</p>
-     <button>Buy now</button>
-     <td><img src="CFMOTO CX-2E 88,800.webp" width="300" height="150">
-    <h2>CFMOTO CX-2E</h2>
-     <p>P865,000</p>
-     <button>Buy now</button>
-     <td><img src="cfmoto-230-dual-6837fb151d8f8 99,900.webp" width="300" height="150">
-    <h2>CFMOTO-230</h2>
-     <p>P865,000</p>
-     <button>Buy now</button>
-     <td><img src="cfmoto-st-papio-125-60c6d9f6d7df-118,900.webp" width="300" height="150">
-    <h2>CFMOTO ST PAPIO-125</h2>
-     <p>P865,000</p>
-     <button>Buy now</button>
-     <td><img src="2023-present-cfmoto-450-nk-64e7144d3301f-272,800.webp" width="300" height="150">
-    <h2>CFMOTO 450-NK</h2>
-     <p>P865,000</p>
-     <button>Buy now</button>
+  <!-- HONDA -->
+  <div class="card honda"><img src="Hcbr650r.webp"><h2>Honda CBR650R</h2><p>P554,000</p><button>Buy now</button></div>
+  <div class="card honda"><img src="Hwinnerx.webp"><h2>Honda Winner X</h2><p>P165,000</p><button>Buy now</button></div>
+  <div class="card honda"><img src="Hcbr150r.webp"><h2>Honda CBR150R</h2><p>P169,000</p><button>Buy now</button></div>
+  <div class="card honda"><img src="Hgiorno.webp"><h2>Honda Giorno</h2><p>P110,000</p><button>Buy now</button></div>
+  <div class="card honda"><img src="HCBR1000RR.webp"><h2>Honda CBR1000RR-R Fireblade</h2><p>P1,699,000</p><button>Buy now</button></div>
+  <div class="card honda"><img src="Hadv160.webp"><h2>HONDA ADV 160</h2><p>P166,900</p><button>Buy now</button></div>
+  <div class="card honda"><img src="Hcbr500r.webp"><h2>Honda CBR500R</h2><p>P389,000</p><button>Buy now</button></div>
+  <div class="card honda"><img src="Hcb1000R.webp"><h2>HONDA CB1000R</h2><p>P865,000</p><button>Buy now</button></div>
 
-</table>
+  <!-- KAWASAKI -->
+  <div class="card kawasaki"><img src="Kz1000r.webp"><h2>Kawasaki Z1000R</h2><p>P710,000</p><button>Buy now</button></div>
+  <div class="card kawasaki"><img src="Kvulcan1700.webp"><h2>Kawasaki Vulcan 1700cc</h2><p>P856,000</p><button>Buy now</button></div>
+  <div class="card kawasaki"><img src="Kvulcan900.webp"><h2>Kawasaki Vulcan 900cc</h2><p>P600,000</p><button>Buy now</button></div>
+  <div class="card kawasaki"><img src="Kzx14r.webp"><h2>Kawasaki ZX 14R</h2><p>P750,000</p><button>Buy now</button></div>
+  <div class="card kawasaki"><img src="Kbarako.webp"><h2>Kawasaki Barako 175</h2><p>P80,000</p><button>Buy now</button></div>
+  <div class="card kawasaki"><img src="Kninjae1.webp"><h2>Kawasaki NINJA E-1</h2><p>P624,000</p><button>Buy now</button></div>
+  <div class="card kawasaki"><img src="Kninja500.webp"><h2>Kawasaki NINJA 500</h2><p>P865,000</p><button>Buy now</button></div>
+  <div class="card kawasaki"><img src="Kninjazx25r.webp"><h2>Kawasaki NINJA ZX25R</h2><p>P406,000</p><button>Buy now</button></div>
+
+  <!-- YAMAHA -->
+  <div class="card yamaha"><img src="Ymiogravis.webp"><h2>Yamaha Mio Gravis</h2><p>P75,000</p><button>Buy now</button></div>
+  <div class="card yamaha"><img src="Yytx125.webp"><h2>Yamaha YTX125</h2><p>P95,000</p><button>Buy now</button></div>
+  <div class="card yamaha"><img src="Ymioaerox.webp"><h2>Yamaha Mio Aerox</h2><p>P123,000</p><button>Buy now</button></div>
+  <div class="card yamaha"><img src="Yyzfr15m.webp"><h2>Yamaha R15M</h2><p>P203,000</p><button>Buy now</button></div>
+  <div class="card yamaha"><img src="Yyzfr3.webp"><h2>Yamaha R3</h2><p>P291,000</p><button>Buy now</button></div>
+  <div class="card yamaha"><img src="Yyzfr1m.webp"><h2>Yamaha R1M</h2><p>P1,739,000</p><button>Buy now</button></div>
+  <div class="card yamaha"><img src="Yr15.webp"><h2>Yamaha R15</h2><p>P164,000</p><button>Buy now</button></div>
+  <div class="card yamaha"><img src="Ysniper155.webp"><h2>Yamaha Sniper 155</h2><p>P125,900</p><button>Buy now</button></div>
+
+  <!-- CFMOTO -->
+  <div class="card cfmoto"><img src="CF250sr.webp"><h2>CFMOTO 250R</h2><p>P135,000</p><button>Buy now</button></div>
+  <div class="card cfmoto"><img src="CF450sr.webp"><h2>CFMOTO 450SR</h2><p>P299,900</p><button>Buy now</button></div>
+  <div class="card cfmoto"><img src="CF500sr.webp"><h2>CFMOTO 500SR</h2><p>P100,900</p><button>Buy now</button></div>
+  <div class="card cfmoto"><img src="CF150nk.webp"><h2>CFMOTO 150 NK</h2><p>P100,900</p><button>Buy now</button></div>
+  <div class="card cfmoto"><img src="CFcx-2e.webp"><h2>CFMOTO CX-2E</h2><p>P88,800</p><button>Buy now</button></div>
+  <div class="card cfmoto"><img src="CF230dual.webp"><h2>CFMOTO 230 Dual</h2><p>P99,900</p><button>Buy now</button></div>
+  <div class="card cfmoto"><img src="CFstpapio125.webp"><h2>CFMOTO ST PAPIO-125</h2><p>P118,900</p><button>Buy now</button></div>
+  <div class="card cfmoto"><img src="CF450nk.webp"><h2>CFMOTO 450 NK</h2><p>P272,800</p><button>Buy now</button></div>
+
+  <!--DUCATI -->
+  <div class="card ducati"><img src="Dpanigalev2.webp"><h2>Ducati Panigale v2</h2><p>P1365,000</p><button>Buy now</button></div>
+  <div class="card ducati"><img src="Dmultistrada v4.webp"><h2>Ducati Panigale v4</h2><p>P1990,000</p><button>Buy now/button></div>
+  <div class="card ducati"><img src="Dscramblericon.webp"><h2>Ducati scrambler icon</h2><p>P670,000</p><button>Buy now</button></div>
+  <div class="card ducati"><img src="Dscramblernightshift.webp"><h2>Ducati scrambler night shift</h2><p>P785,000</p><button>Buy now</button></div>
+  <div class="card ducati"><img src="Dsupersport.webp"><h2>Ducati supersport</h2><p>P1225,000</p><button>Buy now</button></div>
+  <div class="card ducati"><img src="Dsuperleggera v4.webp"><h2>Ducati superleggera v4</h2><p>P7500,000</p><button>Buy now</button></div>
+  <div class="card ducati"><img src="Dstreetfighterv2.webp"><h2>Ducati streetfighter v2</h2><p>P1415,000</p><button>Buy now</button></div>
+  <div class="card ducati"><img src="Dmultistrada v4.webp"><h2>Ducati multistrada v4</h2><p>P1650,000</p><button>Buy now</button></div>
+</div>
+
+<script>
+function filterSelection(brand) {
+  const items = document.querySelectorAll(".card");
+  const buttons = document.querySelectorAll(".filter-buttons button");
+
+  // Update active button
+  buttons.forEach(btn => btn.classList.remove("active"));
+  event.target.classList.add("active");
+
+  // Filter items
+  items.forEach(item => {
+    if (brand === "all" || item.classList.contains(brand)) {
+      item.classList.remove("hidden");
+    } else {
+      item.classList.add("hidden");
+    }
+  });
+}
+</script>
+
 </body>
-
-</hmtl>
+</html>
