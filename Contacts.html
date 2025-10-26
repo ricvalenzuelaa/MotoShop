@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MotoShop Corporation</title>
+  <style>
+ * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: #222;
+      line-height: 1.6;
+      background-color: #f7f9fb;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+   header {
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 15px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Brand on the left */
+.brand-link {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  line-height: 1.1;
+}
+
+.brand-link .main {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #007acc;
+}
+
+.brand-link .sub {
+  font-size: 1.1rem;
+  color: #555;
+  letter-spacing: 1px;
+}
+
+/* Nav on the right */
+.main-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+}
+
+.nav-link {
+  font-weight: 500;
+  color: #007acc;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #005b99;
+  transform: translateY(-2px);
+}
+
+/* Sign In button style */
+.nav-link.signin {
+  background: #007acc;
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.nav-link.signin:hover {
+  background: #005fa3;
+}
+
+
+    /* Hero section */
+    .hero {
+      height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      text-align: center;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url(background\ colo\ green.jpg.jfif) center/cover no-repeat;
+      filter: brightness(0.5);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 0 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      margin-bottom: 0.8rem;
+      letter-spacing: 1px;
+    }
+
+    .hero-content p {
+      font-size: 1.3rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: #007acc;
+      color: #fff;
+      padding: 0.9rem 2rem;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: #005fa3;
+      transform: translateY(-2px);
+    }
+
+    /* Sections */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      border-radius: 8px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      color: #007acc;
+      margin-bottom: 40px;
+      font-weight: 700;
+    }
+    
+</style>
+
+
+
+</head>
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <a href="#" class="brand-link">
+          <span class="main">MotoShop</span>
+          <span class="sub">Corporation</span>
+        </a>
+      </div>
+      <nav class="main-nav">
+        <ul class="nav-list">
+          <li><a href="Home.html" class="nav-link">Home</a></li>
+          <li><a href="#" class="nav-link">Models</a></li>
+          <li><a href="About.html" class="nav-link">About</a></li>
+          <li><a href="Contacts.html" class="nav-link">Contact</a></li>
+          <li><a href="Index.html" class="nav-link signin">Sign In</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+<body>
+
+
+
+
+
+</body>
+</html>
