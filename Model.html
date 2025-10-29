@@ -1,0 +1,320 @@
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Motorcycle Catalog</title>
+
+<style>
+
+
+
+ * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: #222;
+      line-height: 1.6;
+      background-color: #f7f9fb;
+       text-align: center;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+   header {
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 15px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Brand on the left */
+.brand-link {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  line-height: 1.1;
+}
+
+.brand-link .main {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #007acc;
+}
+
+.brand-link .sub {
+  font-size: 1.1rem;
+  color: #555;
+  letter-spacing: 1px;
+}
+
+/* Nav on the right */
+.main-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+}
+
+.nav-link {
+  font-weight: 500;
+  color: #007acc;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #005b99;
+  transform: translateY(-2px);
+}
+
+/* Sign In button style */
+.nav-link.signin {
+  background: #007acc;
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.nav-link.signin:hover {
+  background: #005fa3;
+}
+
+/* Reset some default styles */
+
+
+/* Header */
+h1 {
+  margin-top: 20px;
+  color: #333;
+}
+
+/* Category buttons */
+.filter-buttons {
+  margin: 20px 0;
+}
+
+.filter-buttons button {
+  background-color: #007acc;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+
+.filter-buttons button:hover {
+  background-color: #555;
+  transform: scale(1.05);
+}
+
+.filter-buttons button.active {
+  background-color: #007acc;
+}
+
+/* Catalog Grid */
+.catalog {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 90%;
+  margin: 30px auto;
+}
+
+/* Card Styling */
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.card h2 {
+  font-size: 1.1rem;
+  margin: 10px 0 5px;
+  color: #333;
+}
+
+.card p {
+  font-weight: bold;
+  color: #27ae60;
+  margin: 5px 0 15px;
+}
+
+.card button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.card button:hover {
+  background-color: #2980b9;
+}
+
+/* Hide class for filtering */
+.hidden {
+  display: none;
+}
+</style>
+</head>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="#" class="brand-link">
+      <span class="main">MotoShop</span>
+      <span class="sub">Corporation</span>
+    </a>
+
+    <nav class="main-nav">
+      <ul class="nav-list">
+        <li><a href="Home.html" class="nav-link">Home</a></li>
+        <li><a href="#models" class="nav-link">Models</a></li>
+        <li><a href="About.html" class="nav-link">About</a></li>
+        <li><a href="Contacts.html" class="nav-link">Contact</a></li>
+        <li><a href="Index.html" class="nav-link signin">Sign In</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<body>
+
+<h1>MotoShop</h1>
+
+<!-- Category Buttons -->
+<div class="filter-buttons">
+  <button class="active" onclick="filterSelection('all')">All</button>
+  <button onclick="filterSelection('honda')">Honda</button>
+  <button onclick="filterSelection('kawasaki')">Kawasaki</button>
+  <button onclick="filterSelection('yamaha')">Yamaha</button>
+  <button onclick="filterSelection('cfmoto')">Cfmoto</button>
+  <button onclick="filterSelection('ducati')">Ducati</button>
+</div>
+
+<!-- Motorcycle Catalog -->
+<div class="catalog">
+
+  <!-- HONDA -->
+  <div class="card honda"><img src="Hcbr650r.webp"><h2>Honda CBR650R</h2><p>P554,000</p><button>Buy now</button></div>
+  <div class="card honda"><img src="Hwinnerx.webp"><h2>Honda Winner X</h2><p>P165,000</p><button>Buy now</button></div>
+  <div class="card honda"><img src="Hcbr150r.webp"><h2>Honda CBR150R</h2><p>P169,000</p><button>Buy now</button></div>
+  <div class="card honda"><img src="Hgiorno.webp"><h2>Honda Giorno</h2><p>P110,000</p><button>Buy now</button></div>
+  <div class="card honda"><img src="HCBR1000RR.webp"><h2>Honda CBR1000RR-R Fireblade</h2><p>P1,699,000</p><button>Buy now</button></div>
+  <div class="card honda"><img src="Hadv160.webp"><h2>HONDA ADV 160</h2><p>P166,900</p><button>Buy now</button></div>
+  <div class="card honda"><img src="Hcbr500r.webp"><h2>Honda CBR500R</h2><p>P389,000</p><button>Buy now</button></div>
+  <div class="card honda"><img src="Hcb1000R.webp"><h2>HONDA CB1000R</h2><p>P865,000</p><button>Buy now</button></div>
+
+  <!-- KAWASAKI -->
+  <div class="card kawasaki"><img src="Kz1000r.webp"><h2>Kawasaki Z1000R</h2><p>P710,000</p><button>Buy now</button></div>
+  <div class="card kawasaki"><img src="Kvulcan1700.webp"><h2>Kawasaki Vulcan 1700cc</h2><p>P856,000</p><button>Buy now</button></div>
+  <div class="card kawasaki"><img src="Kvulcan900.webp"><h2>Kawasaki Vulcan 900cc</h2><p>P600,000</p><button>Buy now</button></div>
+  <div class="card kawasaki"><img src="Kzx14r.webp"><h2>Kawasaki ZX 14R</h2><p>P750,000</p><button>Buy now</button></div>
+  <div class="card kawasaki"><img src="Kbarako.webp"><h2>Kawasaki Barako 175</h2><p>P80,000</p><button>Buy now</button></div>
+  <div class="card kawasaki"><img src="Kninjae1.webp"><h2>Kawasaki NINJA E-1</h2><p>P624,000</p><button>Buy now</button></div>
+  <div class="card kawasaki"><img src="Kninja500.webp"><h2>Kawasaki NINJA 500</h2><p>P865,000</p><button>Buy now</button></div>
+  <div class="card kawasaki"><img src="Kninjazx25r.webp"><h2>Kawasaki NINJA ZX25R</h2><p>P406,000</p><button>Buy now</button></div>
+
+  <!-- YAMAHA -->
+  <div class="card yamaha"><img src="Ymiogravis.webp"><h2>Yamaha Mio Gravis</h2><p>P75,000</p><button>Buy now</button></div>
+  <div class="card yamaha"><img src="Yytx125.webp"><h2>Yamaha YTX125</h2><p>P95,000</p><button>Buy now</button></div>
+  <div class="card yamaha"><img src="Ymioaerox.webp"><h2>Yamaha Mio Aerox</h2><p>P123,000</p><button>Buy now</button></div>
+  <div class="card yamaha"><img src="Yyzfr15m.webp"><h2>Yamaha R15M</h2><p>P203,000</p><button>Buy now</button></div>
+  <div class="card yamaha"><img src="Yyzfr3.webp"><h2>Yamaha R3</h2><p>P291,000</p><button>Buy now</button></div>
+  <div class="card yamaha"><img src="Yyzfr1m.webp"><h2>Yamaha R1M</h2><p>P1,739,000</p><button>Buy now</button></div>
+  <div class="card yamaha"><img src="Yr15.webp"><h2>Yamaha R15</h2><p>P164,000</p><button>Buy now</button></div>
+  <div class="card yamaha"><img src="Ysniper155.webp"><h2>Yamaha Sniper 155</h2><p>P125,900</p><button>Buy now</button></div>
+
+  <!-- CFMOTO -->
+  <div class="card cfmoto"><img src="CF250sr.webp"><h2>CFMOTO 250R</h2><p>P135,000</p><button>Buy now</button></div>
+  <div class="card cfmoto"><img src="CF450sr.webp"><h2>CFMOTO 450SR</h2><p>P299,900</p><button>Buy now</button></div>
+  <div class="card cfmoto"><img src="CF500sr.webp"><h2>CFMOTO 500SR</h2><p>P100,900</p><button>Buy now</button></div>
+  <div class="card cfmoto"><img src="CF150nk.webp"><h2>CFMOTO 150 NK</h2><p>P100,900</p><button>Buy now</button></div>
+  <div class="card cfmoto"><img src="CFcx-2e.webp"><h2>CFMOTO CX-2E</h2><p>P88,800</p><button>Buy now</button></div>
+  <div class="card cfmoto"><img src="CF230dual.webp"><h2>CFMOTO 230 Dual</h2><p>P99,900</p><button>Buy now</button></div>
+  <div class="card cfmoto"><img src="CFstpapio125.webp"><h2>CFMOTO ST PAPIO-125</h2><p>P118,900</p><button>Buy now</button></div>
+  <div class="card cfmoto"><img src="CF450nk.webp"><h2>CFMOTO 450 NK</h2><p>P272,800</p><button>Buy now</button></div>
+
+  <!--DUCATI -->
+  <div class="card ducati"><img src="Dpanigalev2.webp"><h2>Ducati Panigale v2</h2><p>P1365,000</p><button>Buy now</button></div>
+  <div class="card ducati"><img src="Dmultistrada v4.webp"><h2>Ducati Panigale v4</h2><p>P1990,000</p><button>Buy now/button></div>
+  <div class="card ducati"><img src="Dscramblericon.webp"><h2>Ducati scrambler icon</h2><p>P670,000</p><button>Buy now</button></div>
+  <div class="card ducati"><img src="Dscramblernightshift.webp"><h2>Ducati scrambler night shift</h2><p>P785,000</p><button>Buy now</button></div>
+  <div class="card ducati"><img src="Dsupersport.webp"><h2>Ducati supersport</h2><p>P1225,000</p><button>Buy now</button></div>
+  <div class="card ducati"><img src="Dsuperleggera v4.webp"><h2>Ducati superleggera v4</h2><p>P7500,000</p><button>Buy now</button></div>
+  <div class="card ducati"><img src="Dstreetfighterv2.webp"><h2>Ducati streetfighter v2</h2><p>P1415,000</p><button>Buy now</button></div>
+  <div class="card ducati"><img src="Dmultistrada v4.webp"><h2>Ducati multistrada v4</h2><p>P1650,000</p><button>Buy now</button></div>
+</div>
+
+<script>
+function filterSelection(brand) {
+  const items = document.querySelectorAll(".card");
+  const buttons = document.querySelectorAll(".filter-buttons button");
+
+  // Update active button
+  buttons.forEach(btn => btn.classList.remove("active"));
+  event.target.classList.add("active");
+
+  // Filter items
+  items.forEach(item => {
+    if (brand === "all" || item.classList.contains(brand)) {
+      item.classList.remove("hidden");
+    } else {
+      item.classList.add("hidden");
+    }
+  });
+}
+</script>
+
+</body>
+</html>

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MotoShop Corporation</title>
   <style>
- * {
+  * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -41,7 +41,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
+  max-width: 2000px;
   margin: 0 auto;
 }
 
@@ -169,43 +169,66 @@
       border-radius: 8px;
     }
 
-    .section-title {
+  
+
+    /* Footer */
+    footer {
+      background: #007acc;
+      color: #fff;
       text-align: center;
-      font-size: 2.2rem;
-      color: #007acc;
-      margin-bottom: 40px;
-      font-weight: 700;
+      padding: 25px 10px;
+      font-size: 0.95rem;
     }
-    
-</style>
 
+    footer a {
+      color: #fff;
+      font-weight: 600;
+      text-decoration: underline;
+    }
 
-
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.4rem;
+      }
+      .hero-content p {
+        font-size: 1rem;
+      }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-list {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+    }
+  </style>
 </head>
-  <header>
-    <div class="header-inner">
-      <div class="brand">
-        <a href="#" class="brand-link">
-          <span class="main">MotoShop</span>
-          <span class="sub">Corporation</span>
-        </a>
-      </div>
-      <nav class="main-nav">
-        <ul class="nav-list">
-          <li><a href="Home.html" class="nav-link">Home</a></li>
-          <li><a href="#" class="nav-link">Models</a></li>
-          <li><a href="About.html" class="nav-link">About</a></li>
-          <li><a href="Contacts.html" class="nav-link">Contact</a></li>
-          <li><a href="Index.html" class="nav-link signin">Sign In</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
 <body>
+<header>
+  <div class="header-inner">
+    <a href="#" class="brand-link">
+      <span class="main">MotoShop</span>
+      <span class="sub">Corporation</span>
+    </a>
+
+    <nav class="main-nav">
+      <ul class="nav-list">
+        <li><a href="Home.html" class="nav-link">Home</a></li>
+        <li><a href="Model.html" class="nav-link">Models</a></li>
+        <li><a href="About.html" class="nav-link">About</a></li>
+        <li><a href="Contacts.html" class="nav-link">Contact</a></li>
+        <li><a href="Index.html" class="nav-link signin">Sign In</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
 
-
-
-
+<footer>
+  <p>&copy; 2025 MotoShop Corporation. All rights reserved.</p>
+  <p>Contact us at: <a href="mailto:info@motoshop.com">info@motoshop.com</a></p>
+  <p>Follow us on: <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">Twitter</a></p>
+</footer>
 </body>
 </html>
